@@ -262,7 +262,7 @@ bindsym $mod+l exec ~/.config/i3/lock
 # Applications
 bindsym $mod+w exec --no-startup-id firefox 
 bindsym $mod+g exec --no-startup-id google-chrome 
-bindsym $mod+r exec $term ranger 
+bindsym $mod+r exec $term -e ranger 
 bindsym $mod+i exec $term htop
 bindsym $mod+F3 exec --no-startup-id mailspring
 bindsym $mod+F4 exec --no-startup-id spotify
