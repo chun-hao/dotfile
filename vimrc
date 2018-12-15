@@ -23,6 +23,9 @@ endif
 call plug#begin('~/.vim/plugged')
 " Plugins from github repos:
 
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 Plug 'NLKNguyen/papercolor-theme' 
 " vimwiki - Personal Wiki for Vim
 Plug 'vimwiki/vimwiki'
@@ -73,9 +76,9 @@ Plug 'rosenfeld/conque-term'
 " Indentation based movements
 " Plug 'jeetsukumaran/vim-indentwise'
 " Python autocompletion, go to definition.
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 " Better autocompletion
-Plug 'Shougo/neocomplcache.vim'
+"Plug 'Shougo/neocomplcache.vim'
 " Snippets manager (SnipMate), dependencies, and snippets repo
 "Plug 'MarcWeber/vim-addon-mw-utils'
 "Plug 'MarcWeber/vim-addon-manager'
@@ -130,6 +133,8 @@ endif
 " }}}
 " Misc {{{
 
+set rtp+=~/.fzf
+
 " leader key
 let mapleader=","
 
@@ -181,7 +186,7 @@ map <F9> :w<CR>:!python %<CR>
 " Colors {{{
 syntax on
 "colorscheme meta5 
-"set background=light
+set background=light
 "colorscheme PaperColor
 " }}}
 " Folding {{{
@@ -287,27 +292,27 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
  let g:UltiSnipsEditSplit="vertical"
 " }}}
-" NeoComplCache {{{
+"" NeoComplCache {{{
 
-" most of them not documented because I'm not sure how they work
-" (docs aren't good, had to do a lot of trial and error to make 
-" it play nice)
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_ignore_case = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_auto_select = 1
-let g:neocomplcache_enable_fuzzy_completion = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_fuzzy_completion_start_length = 1
-let g:neocomplcache_auto_completion_start_length = 1
-let g:neocomplcache_manual_completion_start_length = 1
-let g:neocomplcache_min_keyword_length = 1
-let g:neocomplcache_min_syntax_length = 1
-" complete with workds from any opened file
-let g:neocomplcache_same_filetype_lists = {}
-let g:neocomplcache_same_filetype_lists._ = '_'
-" }}}
+"" most of them not documented because I'm not sure how they work
+"" (docs aren't good, had to do a lot of trial and error to make 
+"" it play nice)
+"let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_ignore_case = 1
+"let g:neocomplcache_enable_smart_case = 1
+"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplcache_enable_fuzzy_completion = 1
+"let g:neocomplcache_enable_camel_case_completion = 1
+"let g:neocomplcache_enable_underbar_completion = 1
+"let g:neocomplcache_fuzzy_completion_start_length = 1
+"let g:neocomplcache_auto_completion_start_length = 1
+"let g:neocomplcache_manual_completion_start_length = 1
+"let g:neocomplcache_min_keyword_length = 1
+"let g:neocomplcache_min_syntax_length = 1
+"" complete with workds from any opened file
+"let g:neocomplcache_same_filetype_lists = {}
+"let g:neocomplcache_same_filetype_lists._ = '_'
+"" }}}
 " Jedi-vim {{{
 
 " All these mappings work only for python code:
@@ -323,7 +328,7 @@ nmap ,D :tab split<CR>:call jedi#goto()<CR>
 " vim-slime {{{
 let g:slime_target = "tmux"
 autocmd FileType python let g:slime_python_ipython = 1
-let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+"let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
 " }}}
 " vim-markdown {{{
 let g:vim_markdown_folding_style_pythonic = 1
